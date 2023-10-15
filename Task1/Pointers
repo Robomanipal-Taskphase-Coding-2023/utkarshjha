@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void copyString(char* source, char* destination) {
+    while (*source != '\0') {
+        *destination = *source;
+        source++;
+        destination++;
+    }
+    *destination = '\0';
+}
+
+int main() {
+    const int MAX_SIZE = 100;
+    char source[MAX_SIZE], destination[MAX_SIZE];
+
+    cout << "Enter a string: ";
+    cin.getline(source, MAX_SIZE);
+
+    copyString(source, destination);
+
+    cout << "Original String: " << source << endl;
+    cout << "Copied String: " << destination << endl;
+
+    return 0;
+}
