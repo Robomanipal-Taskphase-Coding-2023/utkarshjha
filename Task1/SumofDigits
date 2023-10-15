@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int sumOfDigits1(int number) {
+    int sum = 0;
+    while (number != 0) {
+        sum += number % 10;
+        number /= 10;
+    }
+    return sum;
+}
+int sumOfDigits2(int number) {
+    if (number == 0) {
+        return 0;
+    }
+    return (number % 10) + sumOfDigits2(number / 10);
+}
+
+
+int main() {
+    int number;
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+    int sum1 = sumOfDigits1(number);
+    int sum2 = sumOfDigits2(number);
+    std::cout << "Sum of digits without Recursion: " << sum1 << std::endl;
+    std::cout << "Sum of digits with Recursion: " << sum2 << std::endl;
+    return 0;
+}
