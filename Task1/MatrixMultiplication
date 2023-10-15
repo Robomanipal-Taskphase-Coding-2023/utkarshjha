@@ -1,0 +1,66 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int i, j, r1, r2, c1, c2, k, s = 0;
+
+    cout << "Matrix 1" << endl;
+    cout << "Enter the size of the row : ";
+    cin >> r1;
+    cout << "Enter the size of the column : ";
+    cin >> c1;
+
+    cout << "\n\nMatrix 2" << endl;
+    cout << "Enter the size of the row : ";
+    cin >> r2;
+    cout << "Enter the size of the column : ";
+    cin >> c2;
+
+    int a[r1][c1], b[r2][c2], c[r1][c2];
+
+    if (c1 != r2)
+    {
+        cout << "Not compatible";
+        return 0;
+    }
+
+    cout << "\n\nMatrix 1\nEnter the elements" << endl;
+    for (i = 0; i < r1; i++)
+    {
+        for (j = 0; j < c1; j++)
+            cin >> a[i][j];
+    }
+
+    cout << "\n\nMatrix 2\nEnter the elements" << endl;
+    for (i = 0; i < r2; i++)
+    {
+        for (j = 0; j < c2; j++)
+        {
+            cin >> b[i][j];
+        }
+    }
+
+    for (i = 0; i < r1; i++)
+    {
+        for (j = 0; j < c2; j++)
+        {
+            for (k = 0; k < c1; k++)
+                s = s + a[i][k] * b[k][j];
+            c[i][j] = s;
+            s = 0;
+        }
+    }
+
+    cout << "The matrix after multiplication is : \n";
+    for (i = 0; i < r1; i++)
+    {
+        for (j = 0; j < c2; j++)
+        {
+            cout << c[i][j] << "  ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
