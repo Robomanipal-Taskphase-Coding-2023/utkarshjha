@@ -1,0 +1,95 @@
+#include <iostream>
+using namespace std;
+
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap elements if they are in the wrong order
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                // Update the index of the minimum element
+                minIndex = j;
+            }
+        }
+        // Swap the found minimum element with the first element
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+}
+
+int binarySearch(int arr[], int low, int high, int key) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == key) {
+            return mid; // Key found
+        } else if (arr[mid] < key) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1; // Key not found
+}
+
+int main() {
+    int n;
+
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    int arr[n];
+
+    cout << "Enter elements of the array:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    char choice;
+    cout << "Enter 'b' for Bubble Sort or 's' for Selection Sort: ";
+    cin >> choice;
+
+    switch (choice) {
+        case 'b':
+            bubbleSort(arr, n);
+            break;
+        case 's':
+            selectionSort(arr, n);
+            break;
+        default:
+            cout << "Invalid choice.\n";
+            return 1;
+    }
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+
+    int key;
+    cout << "Enter the number to search: ";
+    cin >> key;
+
+    int result = binarySearch(arr, 0, n - 1, key);
+
+    if (result != -1) {
+        cout << "Number found at position " << result + 1 << "\n";
+    } else {
+        cout << "Number not found in the array.\n";
+    }
+
+    return 0;
+}
