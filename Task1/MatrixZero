@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i, j, r, c, k;
+
+    cout << "Matrix 1" << endl;
+    cout << "Enter the size of the row : ";
+    cin >> r;
+    cout << "Enter the size of the column : ";
+    cin >> c;
+
+    int a[r][c], b[r][c];
+
+    for (i = 0; i < r; i++)
+    {
+        for (j = 0; j < c; j++)
+        {
+            cout << "Enter the element : ";
+            cin >> a[i][j];
+            b[i][j] = a[i][j];
+        }
+    }
+
+    cout << "The matrix entered is : " << endl;
+    for (i = 0; i < r; i++)
+    {
+        for (j = 0; j < c; j++)
+            cout << a[i][j] << "  ";
+            cout << endl;
+    }
+
+    for (i = 0; i < r; i++)
+    {
+        for (j = 0; j < c; j++)
+        {
+            if (a[i][j] == 0)
+            {
+                for (k = 0; k < r; k++)
+                {
+                    b[i][k] = 0;
+                    b[k][j] = 0;
+                }
+            }
+        }
+    }
+
+    cout << "The resultant matrix is : " << endl;
+    for (i = 0; i < r; i++)
+    {
+        for (j = 0; j < c; j++)
+        {
+            cout << b[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
