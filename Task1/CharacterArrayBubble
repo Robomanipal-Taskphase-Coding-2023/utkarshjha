@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    string s;
+    cout<< "Type the word:";
+    getline(cin, s);
+    char* char_array = new char[s.length() + 1];
+    char_array[s.length()] = '\0';
+    for(int i=0; i< s.length(); i++){
+        char_array[i] = s[i];
+    }
+    int length = s.length();
+    for(int i=0; i<length;i++){
+        for(int j=0;j<length-1-i;j++){
+            if(s[j]>s[j+1]){
+                int temp = s[j];
+                s[j] = s[j+1];
+                s[j+1] = temp;
+            }
+        }
+    }
+    for(int i=0; i<length;i++){
+        cout<< s[i] << " ";
+    }
+    return 0;
+}
