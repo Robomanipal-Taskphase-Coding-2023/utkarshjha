@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+int binarySearch(int arr[], int low, int high, int target) {
+    if (low > high) {
+        return -1;
+    }
+
+    int mid = low + (high - low) / 2;
+
+    if (arr[mid] == target) {
+        return mid;
+    }
+    else if (arr[mid] > target) {
+        return binarySearch(arr, low, mid - 1, target);
+    }
+    else {
+        return binarySearch(arr, mid + 1, high, target);
+    }
+}
+
+int main() {
+    int size;
+    std::cout << "Enter the size of the array: ";
+    std::cin >> size;
+
+    int arr[size];
+    std::cout << "Enter the elements of the array in sorted order: ";
+    for (int i = 0; i < size; i++) {
+        std::cin >> arr[i];
+    }
+
+    int target;
+    std::cout << "Enter the target element to search: ";
+    std::cin >> target;
+
+    int index = binarySearch(arr, 0, size - 1, target);
+
+    if (index != -1) {
+        std::cout << "Element found at index " << index << std::endl;
+    }
+    else {
+        std::cout << "Element not found" << std::endl;
+    }
+
+    return 0;
+}
