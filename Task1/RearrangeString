@@ -1,0 +1,56 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <cstring>
+
+using namespace std;
+
+
+void rearrangeStrings(char arr[][50], int rows) {
+    vector<pair<int, int>> lengths;
+    for (int i = 0; i < rows; ++i) {
+        lengths.push_back({static_cast<int>(strlen(arr[i])), i});
+    }
+    sort(lengths.begin(), lengths.end());
+    char tempArr[rows][50];
+    for (int i = 0; i < rows; ++i) {
+        strcpy(tempArr[i], arr[lengths[i].second]);
+    }
+    for (int i = 0; i < rows; ++i) {
+        strcpy(arr[i], tempArr[i]);
+    }
+}
+
+void sortIndividualStrings(char arr[][50], int rows) {
+    for (int i = 0; i < rows; ++i) {
+        sort(arr[i], arr[i] + strlen(arr[i]));
+    }
+}
+
+int main() {
+    const int rows = 3;
+    const int cols = 50;
+
+    char strings[rows][cols];
+
+    cout << "Enter " << rows << " strings:\n";
+    for (int i = 0; i < rows; ++i) {
+        cin >> strings[i];
+    }
+    rearrangeStrings(strings, rows);
+
+    cout << "\nRearranged strings based on lengths:\n";
+    for (int i = 0; i < rows; ++i) {
+        cout << strings[i] << endl;
+    }
+
+    sortIndividualStrings(strings, rows);
+
+    cout << "\nIndividual strings sorted in ascending order:\n";
+    for (int i = 0; i < rows; ++i) {
+        cout << strings[i] << endl;
+    }
+
+    return 0;
+}
+
