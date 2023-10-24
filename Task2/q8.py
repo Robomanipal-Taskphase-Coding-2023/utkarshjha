@@ -18,8 +18,3 @@ def text_to_morse(text):
         else:
             morse_code += char  # for unknown characters, simply append them
     return morse_code.strip()
-
-# Example usage:
-input_text = input("Enter a string: ")
-result = text_to_morse(input_text)
-print(f"The Morse code for '{input_text}' is: {result}")
