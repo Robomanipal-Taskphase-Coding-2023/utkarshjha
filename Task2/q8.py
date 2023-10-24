@@ -18,3 +18,7 @@ def text_to_morse(text):
         else:
             morse_code += char  # for unknown characters, simply append them
     return morse_code.strip()
+    
+text = input("Enter the text: ")
+ans = text_to_morse(text)
+print(ans)
