@@ -15,3 +15,10 @@ def second_largest(numbers):
         return "There is no second largest element in the list"
     else:
         return second_largest
+list = []
+n = int(input("Enter list range: "))
+for i in range(0, n):
+    ele = int(input())
+    list.append(ele)
+output = second_largest(list)  
+print(output)      

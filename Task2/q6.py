@@ -18,3 +18,8 @@ def compress_string(s):
         compressed += s[-1]
 
     return compressed
+
+input_string = input("Enter a string: ")
+                     
+result = compress_string(input_string)
+print("Compressed string:", result)

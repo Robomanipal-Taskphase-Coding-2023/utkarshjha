@@ -1,5 +1,5 @@
-def parse_encoded_string(encoded_string):
-    parts = encoded_string.split('000')
+def encoded_string(encoded):
+    parts = encoded.split('000')
 
     if len(parts) >= 3:
         first_name = parts[0]
@@ -16,6 +16,6 @@ def parse_encoded_string(encoded_string):
     else:
         return {"error": "Invalid input format"}
 
-encoded_string = input("Enter the string: ")
-decoded_string = parse_encoded_string(encoded_string)
+encoded_str = input("Enter the string: ")
+decoded_string = encoded_string(encoded_str)
 print(decoded_string)
