@@ -22,26 +22,26 @@ int binarySearch(int arr[], int low, int high, int target) {
 
 int main() {
     int size;
-    std::cout << "Enter the size of the array: ";
-    std::cin >> size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
 
     int arr[size];
-    std::cout << "Enter the elements of the array in sorted order: ";
+    cout << "Enter the elements of the array in sorted order: ";
     for (int i = 0; i < size; i++) {
-        std::cin >> arr[i];
+        cin >> arr[i];
     }
 
     int target;
-    std::cout << "Enter the target element to search: ";
-    std::cin >> target;
+    cout << "Enter the target element to search: ";
+    cin >> target;
 
     int index = binarySearch(arr, 0, size - 1, target);
 
     if (index != -1) {
-        std::cout << "Element found at index " << index << std::endl;
+        cout << "Element found at index " << index << endl;
     }
     else {
-        std::cout << "Element not found" << std::endl;
+        cout << "Element not found" << endl;
     }
 
     return 0;
